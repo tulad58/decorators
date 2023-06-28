@@ -6,12 +6,12 @@ def logger(old_function):
     def new_function(*args, **kwargs):
         time_now = datetime.now()
         name_function = old_function.__name__
-
+        result = old_function(*args, **kwargs)
         with open('main.log', 'a+') as f:
             f.write(f"{name_function}\n")
             f.write(f"{str(args)}\n")
             f.write(f"{str(kwargs)}\n")
-            f.write(f"6.5\n")               # Не понимаю, откуда должно было браться 6.5
+            f.write(f"{result}\n")
             f.write(f"{str(time_now)}\n")
         return old_function(*args, **kwargs)
     return new_function
