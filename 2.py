@@ -2,8 +2,6 @@ import os
 from datetime import datetime
 
 def logger(path):
-
-
     def __logger(old_function):
         def new_function(*args, **kwargs):
             result = old_function(*args, **kwargs)
@@ -17,7 +15,6 @@ def logger(path):
                 f.write(f"{time_now}\n")
             return result
         return new_function
-
     return __logger
 
 
