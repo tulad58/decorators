@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 
+
 def logger(path):
     def __logger(old_function):
         def new_function(*args, **kwargs):
